@@ -34,4 +34,8 @@ public class HomeController {
     @FXML
     public void handleGoToLibrary(ActionEvent actionEvent) {
     }
+
+    @FXML
+    public void handleExitGame(ActionEvent actionEvent) {
+    }
 }
