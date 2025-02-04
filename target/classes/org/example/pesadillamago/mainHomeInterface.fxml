@@ -6,18 +6,18 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pesadillamago.game.dungeon.home.HomeController">
 
-    <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <StackPane>
-            <ImageView fx:id="imageView" fitHeight="350.0" fitWidth="600.0" preserveRatio="true">
+            <!-- <ImageView fx:id="imageView" fitHeight="350.0" fitWidth="600.0" preserveRatio="true">
                 <Image url="@/org/example/pesadillamago/images/casaMagoMain.png" />
-            </ImageView>
+            </ImageView> -->
             <HBox alignment="CENTER" prefWidth="542.0" spacing="90.0">
                 <Button onAction="#handleManageSinga" text="Manejar Singa" />
                 <Button onAction="#handleRest" text="Descansar" />
                 <Button onAction="#handleGoToLibrary" text="Ir a la biblioteca" />
             </HBox>
         </StackPane>
-        <Button onAction="#handleReturnToDungeon" text="Volver a la dungeon" />
     </VBox>
-
+    <Button onAction="#handleReturnToDungeon" text="Volver a la dungeon" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
+    <Button onAction="#handleExitGame" text="Salir del juego" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
 </AnchorPane>
