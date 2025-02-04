@@ -19,6 +19,24 @@ public class Room extends Site {
         farm = new CrystalFarm(0);
     }
 
+    public static Room fromString(String roomText) {
+    // Parsear el texto de la habitación para extraer los datos necesarios
+    // Este es un ejemplo básico, ajusta según el formato exacto de roomText
+    String[] parts = roomText.split(" ");
+    int id = Integer.parseInt(parts[0].substring(3, parts[0].length() - 1));
+    boolean exit = Boolean.parseBoolean(parts[1].substring(5, parts[1].length() - 1));
+    String description = parts[2];
+
+    // Crear un RoomSet vacío para el constructor
+    RoomSet roomSet = new RoomSet(2);
+    Room room = new Room(id, description, roomSet, exit);
+
+    // Aquí puedes agregar lógica adicional para parsear y establecer otros atributos de Room
+
+    return room;
+}
+
+
     //Crystals
     public void generateCrystals(int maxElements, int maxCapacity) { farm.grow(maxElements, maxCapacity); }
     public boolean isEmpty() { return farm.isEmpty(); }
