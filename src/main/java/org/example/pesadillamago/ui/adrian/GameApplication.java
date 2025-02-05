@@ -1,5 +1,4 @@
-
-package org.example.pesadillamago.ui.marcos;
+package org.example.pesadillamago.ui.adrian;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,12 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class GameApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/org/example/pesadillamago/mainHomeInterface.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 400, 400);
-        stage.setTitle("Main Home Interface");
+        FXMLLoader fxmlLoader = new FXMLLoader(org.example.pesadillamago.HelloApplication.class.getResource("game.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 500, 500);
+        stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
     }
