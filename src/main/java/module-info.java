@@ -4,6 +4,7 @@ module org.example.pesadillamago {
     requires javafx.graphics;
 
     exports org.example.pesadillamago;
-    exports org.example.pesadillamago.ui;
-    opens org.example.pesadillamago.ui to javafx.fxml;
+    exports org.example.pesadillamago.ui.adrian;
+    opens org.example.pesadillamago.ui.adrian to javafx.fxml;
+
 }
