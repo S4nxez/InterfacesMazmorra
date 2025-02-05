@@ -60,10 +60,6 @@ public class Home extends Site {
 
     public Knowledge getLibrary() { return library; }
     public Spell getSpell(int index){ return library.get(index); }
-
-
     public String toString() { return "HOME " + comfort + "\n\t" + singa + "\n\t" + container + "\n\t" + library; }
-
-
 
 }
