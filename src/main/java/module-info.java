@@ -5,6 +5,6 @@ module org.example.pesadillamago {
     requires java.xml;
 
     opens org.example.pesadillamago.game.dungeon.home to javafx.fxml;
-    exports org.example.pesadillamago.ui.marcos;
-    opens org.example.pesadillamago.ui.marcos to javafx.fxml;
+    exports org.example.pesadillamago.ui;
+    opens org.example.pesadillamago.ui to javafx.fxml;
 }
