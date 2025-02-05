@@ -1,4 +1,4 @@
-package org.example.pesadillamago.ui.marcos;
+package org.example.pesadillamago.ui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
