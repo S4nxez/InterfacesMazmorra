@@ -1,5 +1,6 @@
 package org.example.pesadillamago.game.dungeon.home;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -55,5 +56,17 @@ public class HomeSingaController {
     private void handleImproveMemory() {
         // Implement logic to improve memory
         improveCharacterPanel.setVisible(false);
+    }
+    @FXML
+    public void handleMergeCrystals(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void handleUpgradeCharacteristics(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void handleMergeSingaCrystal(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void handleEndMerge(ActionEvent actionEvent) {
     }
 }

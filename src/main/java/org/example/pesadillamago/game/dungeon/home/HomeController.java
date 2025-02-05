@@ -38,4 +38,13 @@ public class HomeController {
     @FXML
     public void handleExitGame(ActionEvent actionEvent) {
     }
+    @FXML
+    public void handleGoToDungeon(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void handleSleep(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void handleRecoverLife(ActionEvent actionEvent) {
+    }
 }

@@ -1,27 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pesadillamago.game.dungeon.home.HomeController">
-
-    <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <StackPane>
-             <ImageView fx:id="imageView" fitHeight="350.0" fitWidth="600.0" preserveRatio="true">
-                <Image url="@images/casaMagoMain.png" />
-            </ImageView>
-            <HBox alignment="CENTER" prefWidth="542.0" spacing="90.0">
-                <Button onAction="#handleManageSinga" text="Manejar Singa" />
-                <Button onAction="#handleRest" text="Descansar" />
-                <Button onAction="#handleGoToLibrary" text="Ir a la biblioteca" />
-            </HBox>
-        </StackPane>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pesadillamago.game.dungeon.home.HomeController">
+    <ImageView fx:id="imageView" fitHeight="400.0" fitWidth="600.0" preserveRatio="true">
+        <Image url="@images/casaMagoMain.png" />
+    </ImageView>
+    <VBox alignment="CENTER" spacing="10.0">
+        <Button onAction="#handleGoToDungeon" text="Go to Dungeon" />
+        <Button onAction="#handleSleep" text="Sleep (recover energy)" />
+        <Button onAction="#handleRecoverLife" text="Recover life points" />
+        <Button onAction="#handleExitGame" text="Exit Game" />
+        <Button onAction="#handleManageSinga" text="Manage Singa" />
+        <Button onAction="#handleGoToLibrary" text="Go to Library" />
     </VBox>
-    <Button onAction="#handleReturnToDungeon" text="Volver a la dungeon" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
-    <Button onAction="#handleExitGame" text="Salir del juego" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
 </AnchorPane>
