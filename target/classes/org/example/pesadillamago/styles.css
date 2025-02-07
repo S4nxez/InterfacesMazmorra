@@ -1,0 +1,75 @@
+@font-face {
+    font-family: "Old English Text MT";
+}
+
+.root {
+    -fx-font-family: "Old English Text MT", "Garamond", "Palatino Linotype", serif;
+    -fx-background-color: #0d0d0d;
+    -fx-text-fill: white;
+}
+
+/* BOTONES GÓTICOS */
+.button {
+    -fx-min-width: 120px;
+    -fx-min-height: 45px;
+    -fx-background-color: black;
+    -fx-border-color: gold;
+    -fx-border-width: 3px;
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+    -fx-padding: 8px 12px;
+
+    /* Bordes puntiagudos con una combinación de sombras y efectos */
+    -fx-border-radius: 0;
+    -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 0.8), 8, 0.6, 0, 0),
+    innershadow(three-pass-box, rgba(255, 215, 0, 0.5), 4, 0, 2, 2),
+    innershadow(three-pass-box, rgba(0, 0, 0, 0.7), 4, 0, -2, -2);
+}
+
+.button:hover {
+    -fx-background-color: darkred;
+    -fx-border-color: goldenrod;
+    -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 1), 12, 0.8, 0, 0);
+}
+
+.button:pressed {
+    -fx-background-color: black;
+    -fx-border-color: goldenrod;
+    -fx-effect: innershadow(three-pass-box, rgba(0, 0, 0, 0.9), 6, 0, 2, 2);
+}
+
+/* ÁREAS DE TEXTO ESTILO PERGAMINO */
+.text-area {
+    -fx-font-size: 16px;
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: white;
+    -fx-border-color: gold;
+    -fx-border-width: 3px;
+    -fx-border-radius: 0;
+    -fx-padding: 6px;
+    -fx-effect: innershadow(three-pass-box, rgba(255, 215, 0, 0.5), 4, 0, 2, 2);
+}
+
+/* PANELES PRINCIPALES */
+#messageArea, #mainArea {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: gold;
+    -fx-border-width: 3px;
+    -fx-border-radius: 0;
+    -fx-padding: 12px;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-effect: innershadow(three-pass-box, rgba(255, 215, 0, 0.5), 4, 0, 2, 2);
+}
+
+/* LISTAS GÓTICAS */
+.list-view {
+    -fx-max-width: 180px;
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: gold;
+    -fx-border-width: 3px;
+    -fx-border-radius: 0;
+    -fx-padding: 8px;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
