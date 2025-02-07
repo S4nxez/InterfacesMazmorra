@@ -1,5 +1,6 @@
 package org.example.pesadillamago.game.dungeon;
 
+import lombok.Data;
 import org.example.pesadillamago.game.object.Item;
 import org.example.pesadillamago.game.objectContainer.Container;
 import org.example.pesadillamago.game.objectContainer.exceptions.ContainerFullException;
@@ -7,8 +8,8 @@ import org.example.pesadillamago.game.objectContainer.exceptions.ContainerUnacce
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
-public class Site {
+@Data
+public class Site implements Location {
     final int ID;
     final String description;
     boolean visited = false;

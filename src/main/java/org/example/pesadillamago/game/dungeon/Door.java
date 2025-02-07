@@ -1,8 +1,11 @@
 package org.example.pesadillamago.game.dungeon;
 
+import lombok.Setter;
+
 public class Door {
     private final Site a;
     private final Site b;
+    @Setter
     private boolean used = false;
 
     public Door(Site a, Site b) {
@@ -24,7 +27,8 @@ public class Door {
     }
 
     public Site openFrom(Site current) {
-        used = true;
+        // Comenta o elimina esta línea:
+        // used = true;
         return getOtherSite(current);
     }
 
@@ -35,4 +39,5 @@ public class Door {
     public String toString(){
         return a.getID() + ":" + b.getID();
     }
+
 }

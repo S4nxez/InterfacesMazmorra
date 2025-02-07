@@ -23,4 +23,5 @@
     <Button layoutX="300.0" onAction="#handleUpgradeHomeComfort" text="Upgrade Home Comfort" />
     <Button layoutX="400.0" layoutY="100" onAction="#handleUpgradeStoneCapacity" text="Upgrade Stone Capacity" />
     <Button layoutX="650.0" onAction="#handleExitMenu" text="Exit Menu" />
+
 </AnchorPane>

@@ -9,7 +9,6 @@
     <ImageView preserveRatio="true">
         <Image url="@images/casaBiblioteca.jpg"/>
     </ImageView>
-    <VBox alignment="CENTER" spacing="10.0"/>
     <AnchorPane>
         <VBox alignment="CENTER" spacing="10.0"/>
     </AnchorPane>

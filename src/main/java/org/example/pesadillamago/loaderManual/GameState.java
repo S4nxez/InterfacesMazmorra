@@ -10,15 +10,22 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.example.pesadillamago.game.character.Wizard;
 import org.example.pesadillamago.game.dungeon.Dungeon;
 import org.example.pesadillamago.game.dungeon.Room;
+import org.example.pesadillamago.game.objectContainer.CrystalCarrier;
+import org.example.pesadillamago.game.objectContainer.JewelryBag;
+import org.example.pesadillamago.game.objectContainer.Wearables;
 import org.w3c.dom.*;
 
-class GameState {
+public class GameState {
     private String playerName;
     private int level;
     private int score;
     private List<Dungeon> dungeons;
+
+    ///todo
+    private Wizard wizard;
 
     public List<Dungeon> getDungeons() { return dungeons; }
     public void setDungeons(List<Dungeon> dungeons) { this.dungeons = dungeons; }
@@ -27,6 +34,19 @@ class GameState {
         this.playerName = playerName;
         this.level = level;
         this.score = score;
+    }
+
+    public GameState() {
+        this.wizard = new Wizard("Merlin",5,10,5,10,new Wearables(30,30,30)
+                ,new CrystalCarrier(6),new JewelryBag(6));
+        //Guardar el mago
+    }
+
+    public Wizard getWizard() {
+        return wizard;
+    }
+    public void setWizard(Wizard wizard) {
+        this.wizard = wizard;
     }
 
     public String getPlayerName() {
@@ -49,6 +69,10 @@ class GameState {
             return new GameState(playerName, level, score);
         }
     }
+    //Aquí leemos el mago guardado
+//    public static Wizard loadWizardFromTextFile(String filename) throws IOException {
+//
+//    }
 
     public void saveToTextFile(String filename) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
@@ -57,6 +81,11 @@ class GameState {
             writer.write(score + "\n");
         }
     }
+
+    //Aquí guardamos el mago
+//    public void saveWizardToTextFile(String filename) throws IOException {
+//    }
+
 
     public static GameState loadFromXML(String filename) throws Exception {
     DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();

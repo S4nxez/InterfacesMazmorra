@@ -1,11 +1,12 @@
 package org.example.pesadillamago.game.demiurge;
 
+import lombok.Data;
 import org.example.pesadillamago.game.DungeonLoader;
 import org.example.pesadillamago.game.character.Wizard;
 import org.example.pesadillamago.game.conditions.Condition;
 import org.example.pesadillamago.game.dungeon.Dungeon;
 import org.example.pesadillamago.game.dungeon.Home;
-
+@Data
 public class Demiurge {
     private int day = 0;
     private Dungeon dungeon;
