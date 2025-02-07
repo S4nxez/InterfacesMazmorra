@@ -11,12 +11,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleLogicJump {
-    private final Wizard
-            wizard;
-    private final Dungeon
-            dungeon;
-    private final Scanner
-            scanner;
+    private final Wizard wizard;
+    private final Dungeon dungeon;
+    private final Scanner scanner;
 
     public ConsoleLogicJump(Wizard wizard, Dungeon dungeon) {
         this.wizard = wizard;
@@ -24,15 +21,13 @@ public class ConsoleLogicJump {
         this.scanner = new Scanner(System.in);
     }
 
-    public void
-    start() {
+    public void start() {
         System.out.println("Welcome to the Dungeon Game!");
-        wizard.setCurrentLocation(dungeon.getRoom(0)) ;// Start at the first room
+        wizard.setCurrentLocation(dungeon.getRoom(0));// Start at the first room
 
         while (true) {
             displayCurrentState();
-            String
-                    command = getUserInput();
+            String command = getUserInput();
 
             if (command.equalsIgnoreCase("quit")) {
                 break;
@@ -53,14 +48,12 @@ public class ConsoleLogicJump {
         }
     }
 
-    private String
-    getUserInput() {
+    private String getUserInput() {
         System.out.print("Enter your command (move <door number> / jump <room id> / quit): ");
         return scanner.nextLine().trim();
     }
 
-    private void
-    processCommand(String command) {
+    private void processCommand(String command) {
         String[] parts = command.split("\\s+");
         if (parts.length != 2) {
             System.out.println("Invalid command. Please try again.");
@@ -94,13 +87,12 @@ public class ConsoleLogicJump {
             } else {
                 System.out.println("Invalid door number. Please try again.");
             }
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("Invalid door number. Please try again.");
         }
     }
 
-    private void
-    jumpWizard(String roomId) {
+    private void jumpWizard(String roomId) {
         Jump jumpSpell = new Jump(dungeon);
         int result = jumpSpell.cast(roomId, 0);
         if (result != -1) {
