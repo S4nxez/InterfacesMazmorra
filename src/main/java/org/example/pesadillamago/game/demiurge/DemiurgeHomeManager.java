@@ -1,5 +1,6 @@
 package org.example.pesadillamago.game.demiurge;
 
+import org.example.pesadillamago.dao.DaoPlayer;
 import org.example.pesadillamago.game.character.Wizard;
 import org.example.pesadillamago.game.character.exceptions.WizardNotEnoughEnergyException;
 import org.example.pesadillamago.game.character.exceptions.WizardSpellKnownException;
@@ -98,15 +99,7 @@ public class DemiurgeHomeManager {
     }
 
     public void upgradeSingaMax() throws HomeNotEnoughSingaException, WizardNotEnoughEnergyException, WizardTiredException {
-        if (home.getMaxSinga() > home.getSinga()) {
-            throw new HomeNotEnoughSingaException();
-        } else if (home.getMaxSinga() / 2 > wizard.getEnergy()) {
-            throw new WizardNotEnoughEnergyException();
-        } else {
-            home.upgradeMaxSinga(dc.get("stoneIncrease"));
-            home.emptySinga();
-            wizard.drainEnergy(home.getMaxSinga() / 2);
-        }
+        DaoPlayer.check_singa(home, wizard, dc);
     }
 
     public Knowledge getMemory() { return wizard.getMemory(); }
