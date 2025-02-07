@@ -5,7 +5,7 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pesadillamago.game.dungeon.home.HomeLibraryController">
+<AnchorPane stylesheets="@./styles.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pesadillamago.game.dungeon.home.HomeLibraryController">
     <ImageView fitHeight="400.0" fitWidth="600.0" preserveRatio="true">
         <Image url="@images/casaBiblioteca.jpg" />
     </ImageView>
@@ -13,15 +13,6 @@
         <Button onAction="#handleManageSpells" text="Manage Spells" />
         <Button onAction="#handleManageStorage" text="Manage Storage" />
     </VBox>
-    <AnchorPane >
-        <VBox alignment="CENTER" spacing="10.0">
-            <Button onAction="#handleUpgradeMaxLife" text="Upgrade Max Life" />
-            <Button onAction="#handleUpgradeMaxEnergy" text="Upgrade Max Energy" />
-            <Button onAction="#handleUpgradeHomeComfort" text="Upgrade Home Comfort" />
-            <Button onAction="#handleUpgradeStoneCapacity" text="Upgrade Stone Capacity" />
-            <Button onAction="#handleExitMenu" text="Exit Menu" />
-        </VBox>
-    </AnchorPane>
     <AnchorPane>
         <VBox alignment="CENTER" spacing="10.0">
             <Button onAction="#handleImproveSpell" text="Improve a Known Spell" />

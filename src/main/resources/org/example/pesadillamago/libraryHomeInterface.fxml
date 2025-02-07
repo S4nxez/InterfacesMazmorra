@@ -1,45 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pesadillamago.game.dungeon.home.HomeLibraryController">
-    <ImageView fitHeight="400.0" fitWidth="600.0" preserveRatio="true">
-        <Image url="@images/casaBiblioteca.jpg" />
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@./styles.css" xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pesadillamago.game.dungeon.home.HomeLibraryController">
+    <ImageView preserveRatio="true">
+        <Image url="@images/casaBiblioteca.jpg"/>
     </ImageView>
-    <VBox alignment="CENTER" spacing="10.0">
-        <Button onAction="#handleManageSpells" text="Manage Spells" />
-        <Button onAction="#handleManageStorage" text="Manage Storage" />
-    </VBox>
-    <AnchorPane >
-        <VBox alignment="CENTER" spacing="10.0">
-            <Button onAction="#handleUpgradeMaxLife" text="Upgrade Max Life" />
-            <Button onAction="#handleUpgradeMaxEnergy" text="Upgrade Max Energy" />
-            <Button onAction="#handleUpgradeHomeComfort" text="Upgrade Home Comfort" />
-            <Button onAction="#handleUpgradeStoneCapacity" text="Upgrade Stone Capacity" />
-            <Button onAction="#handleExitMenu" text="Exit Menu" />
-        </VBox>
+    <VBox alignment="CENTER" spacing="10.0"/>
+    <AnchorPane>
+        <VBox alignment="CENTER" spacing="10.0"/>
     </AnchorPane>
     <AnchorPane>
-        <VBox alignment="CENTER" spacing="10.0">
-            <Button onAction="#handleImproveSpell" text="Improve a Known Spell" />
-            <Button onAction="#handleLearnNewSpell" text="Learn New Spell" />
-            <Button onAction="#handleExit" text="Exit" />
-        </VBox>
+        <VBox alignment="CENTER" spacing="10.0"/>
     </AnchorPane>
-    <AnchorPane>
-        <VBox alignment="CENTER" spacing="10.0">
-            <Button onAction="#handleDeleteFromStorage" text="Delete from Storage" />
-            <Button onAction="#handleDeleteFromJewelryBag" text="Delete from Jewelry Bag" />
-            <Button onAction="#handleTakeFromStorage" text="Take from Storage" />
-            <Button onAction="#handleTakeFromJewelryBag" text="Take from Jewelry Bag" />
-            <Button onAction="#handleLeaveInChest" text="Leave in the Chest" />
-            <Button onAction="#handleLeaveInJewelryBag" text="Leave in the Jewelry Bag" />
-            <Button onAction="#handleExchangeWizardChest" text="Exchange between Wizard and Chest" />
-            <Button onAction="#handleExchangeWizardJewelryBag" text="Exchange between Wizard and Jewelry Bag" />
-            <Button onAction="#handleExit" text="Exit" />
-        </VBox>
+    <Button layoutX="14.0" layoutY="21.0" onAction="#handleExit" text="Exit"/>
+
+    <Button layoutX="718.0" layoutY="542.0" onAction="#handleManageChest" text="Manage Chest"/>
+    <AnchorPane fx:id="chest" visible="false">
+        <Button layoutX="107.0" layoutY="640.0" onAction="#handleDeleteFromChest" text="Delete"/>
+        <Button layoutX="608.0" layoutY="640.0" onAction="#handleTakeFromChest" text="Take"/>
+        <Button layoutX="317.0" layoutY="640" onAction="#handleExchangeWizardChest" text="Exchange"/>
+        <Button layoutX="790.0" layoutY="640.0" onAction="#handleLeaveInChest" text="Leave"/>
+    </AnchorPane>
+
+    <!-- Jewelry bag-->
+    <Button layoutX="350" layoutY="542" onAction="#handleJewelry" text="Manage jewelry bag"/>
+    <AnchorPane fx:id="jewelry" visible="false">
+        <Button layoutX="59.0" layoutY="640.0" onAction="#handleDeleteFromJewelryBag" text="Delete"/>
+        <Button layoutX="450.0" layoutY="640.0" onAction="#handleExchangeWizardJewelryBag" text="Exchange"/>
+        <Button layoutX="850" layoutY="640.0" onAction="#handleTakeFromJewelryBag" text="Take"/>
+    </AnchorPane>
+
+    <!-- Spells-->
+    <Button layoutX="24.0" layoutY="542.0" onAction="#handleManageSpells" text="Manage Spells"/>
+    <AnchorPane fx:id="spells" visible="false">
+        <Button layoutX="137.0" layoutY="640.0" onAction="#handleImproveSpell" text="Improve a Known Spell"/>
+        <Button layoutX="642.0" layoutY="640.0" onAction="#handleLearnNewSpell" text="Learn New Spell"/>
     </AnchorPane>
 </AnchorPane>
