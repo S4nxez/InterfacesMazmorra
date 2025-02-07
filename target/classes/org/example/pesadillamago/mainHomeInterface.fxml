@@ -4,7 +4,9 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane stylesheets="@./styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pesadillamago.game.dungeon.home.HomeController">
+<AnchorPane
+        prefHeight="400.0" prefWidth="600.0"
+        stylesheets="@./styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pesadillamago.game.dungeon.home.HomeController">
     <ImageView fx:id="imageView" preserveRatio="true">
         <Image url="@images/casaMagoMain.png" />
     </ImageView>

@@ -20,9 +20,9 @@ class GameStateTest {
         RoomSet roomSet = new RoomSet(3);
 
         // Crear habitaciones para la primera mazmorra
-        Room room1 = new Room(1, "Entrada", roomSet);
-        Room room2 = new Room(2, "Sala de tesoros", roomSet);
-        Room room3 = new Room(3, "Habitación del jefe", roomSet);
+        Room room1 = new Room(1, "Entrada", roomSet, "1.png");
+        Room room2 = new Room(2, "Sala de tesoros", roomSet, "2.png");
+        Room room3 = new Room(3, "Habitación del jefe", roomSet, "3.png");
 
         // Crear la primera mazmorra y agregar habitaciones
         Dungeon dungeon1 = new Dungeon();
@@ -31,9 +31,9 @@ class GameStateTest {
         dungeon1.addRoom(room3);
 
         // Crear habitaciones para la segunda mazmorra
-        Room room4 = new Room(4, "Entrada", roomSet);
-        Room room5 = new Room(5, "Pasillo oscuro", roomSet);
-        Room room6 = new Room(6, "Cámara secreta", roomSet);
+        Room room4 = new Room(4, "Entrada", roomSet, "4.png");
+        Room room5 = new Room(5, "Pasillo oscuro", roomSet, "5.png");
+        Room room6 = new Room(6, "Cámara secreta", roomSet, "6.png");
 
         // Crear la segunda mazmorra y agregar habitaciones
         Dungeon dungeon2 = new Dungeon();
