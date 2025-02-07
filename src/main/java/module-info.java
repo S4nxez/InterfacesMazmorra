@@ -3,6 +3,7 @@ module org.example.pesadillamago {
     requires javafx.fxml;
     requires javafx.graphics;
     requires java.xml;
+    requires static lombok;
 
     opens org.example.pesadillamago.game.dungeon.home to javafx.fxml;
     exports org.example.pesadillamago.ui;

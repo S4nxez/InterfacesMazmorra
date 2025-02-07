@@ -2,6 +2,7 @@ package org.example.pesadillamago.game.dungeon;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class Dungeon {
 
@@ -28,6 +29,10 @@ public class Dungeon {
                 return  room;
         }
         return null;
+    }
+
+    public List<Door> getAvailableDoorsForLocation(Location location) {
+        return new ArrayList<>(location.getDoors());
     }
 
 }

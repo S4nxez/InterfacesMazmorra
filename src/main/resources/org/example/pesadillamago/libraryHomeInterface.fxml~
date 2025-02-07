@@ -13,6 +13,15 @@
         <Button onAction="#handleManageSpells" text="Manage Spells" />
         <Button onAction="#handleManageStorage" text="Manage Storage" />
     </VBox>
+    <AnchorPane >
+        <VBox alignment="CENTER" spacing="10.0">
+            <Button onAction="#handleUpgradeMaxLife" text="Upgrade Max Life" />
+            <Button onAction="#handleUpgradeMaxEnergy" text="Upgrade Max Energy" />
+            <Button onAction="#handleUpgradeHomeComfort" text="Upgrade Home Comfort" />
+            <Button onAction="#handleUpgradeStoneCapacity" text="Upgrade Stone Capacity" />
+            <Button onAction="#handleExitMenu" text="Exit Menu" />
+        </VBox>
+    </AnchorPane>
     <AnchorPane>
         <VBox alignment="CENTER" spacing="10.0">
             <Button onAction="#handleImproveSpell" text="Improve a Known Spell" />
