@@ -32,8 +32,12 @@ import org.example.pesadillamago.game.util.ValueUnderMinException;
 public class Wizard extends Character {
     private Site currentLocation;
     private final Value energy;
+    @Getter
     private final Wearables wearables;
+    //Containers
+    @Getter
     private final CrystalCarrier crystalCarrier;
+    @Getter
     private final JewelryBag jewelryBag;
 
     public Wizard(String n, int l, int lm, int e, int em, Wearables w, CrystalCarrier c, JewelryBag j) {
@@ -88,12 +92,6 @@ public class Wizard extends Character {
     public void upgradeEnergyMax(int m) {
         energy.increaseMaximum(m);
     }
-
-
-    //Containers
-    public Container getCrystalCarrier(){ return crystalCarrier;}
-    public Container getJewelryBag() { return jewelryBag; }
-    public Container getWearables() { return wearables; }
 
 
     public void addItem(Item item) throws ContainerUnacceptedItemException, ContainerFullException {

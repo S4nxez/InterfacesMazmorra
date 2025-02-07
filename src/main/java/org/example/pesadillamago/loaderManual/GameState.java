@@ -24,7 +24,6 @@ public class GameState {
     private int score;
     private List<Dungeon> dungeons;
 
-    ///todo
     private Wizard wizard;
 
     public List<Dungeon> getDungeons() { return dungeons; }
@@ -70,9 +69,28 @@ public class GameState {
         }
     }
     //Aquí leemos el mago guardado
-//    public static Wizard loadWizardFromTextFile(String filename) throws IOException {
-//
-//    }
+   public static Wizard loadWizardFromTextFile(String filename) throws IOException {
+       try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+           String n = reader.readLine();
+           int i = Integer.parseInt(reader.readLine());
+           int lm = Integer.parseInt(reader.readLine());
+           int e = Integer.parseInt(reader.readLine());
+           int em   = Integer.parseInt(reader.readLine());
+           Wearables weareables = new Wearables(Integer.parseInt(reader.readLine()),Integer.parseInt(reader.readLine()),Integer.parseInt(reader.readLine()));
+           CrystalCarrier crystalCarrier = new CrystalCarrier(Integer.parseInt(reader.readLine()));
+           JewelryBag jewelryBag = new JewelryBag(Integer.parseInt(reader.readLine()));
+           return new Wizard(
+                     n,
+                     i,
+                     lm,
+                     e,
+                     em,
+                     weareables,
+                     crystalCarrier,
+                     jewelryBag
+           );
+       }
+    }
 
     public void saveToTextFile(String filename) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
@@ -83,8 +101,20 @@ public class GameState {
     }
 
     //Aquí guardamos el mago
-//    public void saveWizardToTextFile(String filename) throws IOException {
-//    }
+    public void saveWizardToTextFile(String filename) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            writer.write(wizard.getName() + "\n");
+            writer.write(wizard.getLife() + "\n");
+            writer.write(wizard.getLifeMax() + "\n");
+            writer.write(wizard.getEnergy() + "\n");
+            writer.write(wizard.getEnergyMax() + "\n");
+            writer.write(wizard.getWearables().getWeaponsMAX() + "\n");
+            writer.write(wizard.getWearables().getNecklacesMAX() + "\n");
+            writer.write(wizard.getWearables().getRingsMAX() + "\n");
+            writer.write(wizard.getCrystalCarrier().getMaximum() + "\n");
+            writer.write(wizard.getJewelryBag().getMaximum() + "\n");
+        }
+    }
 
 
     public static GameState loadFromXML(String filename) throws Exception {

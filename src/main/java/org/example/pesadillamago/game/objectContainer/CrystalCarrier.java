@@ -1,5 +1,7 @@
 package org.example.pesadillamago.game.objectContainer;
 
+import lombok.Data;
+import lombok.Getter;
 import org.example.pesadillamago.game.object.Item;
 import org.example.pesadillamago.game.object.SingaCrystal;
 import org.example.pesadillamago.game.objectContainer.exceptions.ContainerFullException;
@@ -9,6 +11,7 @@ import org.example.pesadillamago.game.objectContainer.exceptions.ContainerUnacce
  * A portable storage to carry the gathered crystals till arrive to home. Maybe a bracelet or a bag...
  * The capacity is limited.
  */
+@Getter
 public class CrystalCarrier extends ContainerSinga {
 
     public CrystalCarrier(int c) { super(c); }
