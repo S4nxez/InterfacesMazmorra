@@ -4,8 +4,8 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pesadillamago.game.dungeon.home.HomeSingaController">
-    <ImageView fitHeight="400.0" fitWidth="600.0" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@./styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pesadillamago.game.dungeon.home.HomeSingaController">
+    <ImageView preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <Image url="@images/casaSinga.png" />
     </ImageView>
     <VBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -13,17 +13,15 @@
         <Button onAction="#handleUpgradeCharacteristics" text="Upgrade Characteristics" />
     </VBox>
     <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-        <Label text="There is space to store: 40 singa" />
+        <Label style="-fx-text-fill: white; -fx-font-size: 25px;  -fx-effect: dropshadow(gaussian, black, 2, 2, 0, 0);" text="There is space to store: 40 singa" />
         <Button onAction="#handleMergeSingaCrystal" text="Merge Singa Crystal" />
         <Button onAction="#handleEndMerge" text="End Merge" />
     </VBox>
-    <AnchorPane >
-        <VBox alignment="CENTER" spacing="10.0">
-            <Button onAction="#handleUpgradeMaxLife" text="Upgrade Max Life" />
-            <Button onAction="#handleUpgradeMaxEnergy" text="Upgrade Max Energy" />
-            <Button onAction="#handleUpgradeHomeComfort" text="Upgrade Home Comfort" />
-            <Button onAction="#handleUpgradeStoneCapacity" text="Upgrade Stone Capacity" />
-            <Button onAction="#handleExitMenu" text="Exit Menu" />
-        </VBox>
-    </AnchorPane>
+
+    <Button onAction="#handleUpgradeMaxLife" text="Upgrade Max Life" />
+    <Button layoutX="50.0" layoutY="100" onAction="#handleUpgradeMaxEnergy" text="Upgrade Max Energy" />
+    <Button layoutX="300.0" onAction="#handleUpgradeHomeComfort" text="Upgrade Home Comfort" />
+    <Button layoutX="400.0" layoutY="100" onAction="#handleUpgradeStoneCapacity" text="Upgrade Stone Capacity" />
+    <Button layoutX="650.0" onAction="#handleExitMenu" text="Exit Menu" />
+
 </AnchorPane>

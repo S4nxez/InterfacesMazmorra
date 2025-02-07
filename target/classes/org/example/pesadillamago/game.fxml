@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="rootPane" prefHeight="445.0" prefWidth="491.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pesadillamago.ui.adrian.GameController">
+<AnchorPane stylesheets="@./styles.css" fx:id="rootPane" prefHeight="445.0" prefWidth="491.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pesadillamago.ui.adrian.GameController">
     <children>
         <ImageView fx:id="gameImageView" fitHeight="466.0" fitWidth="484.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@images/game/1.png" />
