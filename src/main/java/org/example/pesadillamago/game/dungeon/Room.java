@@ -1,11 +1,12 @@
 package org.example.pesadillamago.game.dungeon;
 
+import lombok.Data;
 import org.example.pesadillamago.game.character.Creature;
 import org.example.pesadillamago.game.object.SingaCrystal;
 import org.example.pesadillamago.game.objectContainer.CrystalFarm;
 import org.example.pesadillamago.game.objectContainer.RoomSet;
 
-public class Room extends Site {
+public class Room extends Site implements Location {
     private CrystalFarm farm;
     private Creature creature = null;
 

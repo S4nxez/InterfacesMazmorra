@@ -99,4 +99,24 @@ public class HomeSingaController {
     public void handleEndMerge(ActionEvent actionEvent) {
 
     }
+    @FXML
+    public void handleUpgradeMaxLife(ActionEvent actionEvent) {
+
+    }
+    @FXML
+    public void handleUpgradeMaxEnergy(ActionEvent actionEvent) {
+
+    }
+    @FXML
+    public void handleUpgradeHomeComfort(ActionEvent actionEvent) {
+
+    }
+    @FXML
+    public void handleUpgradeStoneCapacity(ActionEvent actionEvent) {
+
+    }
+    @FXML
+    public void handleExitMenu(ActionEvent actionEvent) {
+
+    }
 }

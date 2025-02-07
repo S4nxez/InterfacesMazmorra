@@ -10,7 +10,7 @@ import org.example.pesadillamago.game.util.Value;
 import org.example.pesadillamago.game.util.ValueOverMaxException;
 import org.example.pesadillamago.game.util.ValueUnderMinException;
 
-public class Home extends Site {
+public class Home extends Site implements Location {
     private Value comfort;
     private final SingaStone singa;
 
