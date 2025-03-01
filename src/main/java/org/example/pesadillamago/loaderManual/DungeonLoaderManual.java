@@ -69,17 +69,17 @@ public class DungeonLoaderManual implements DungeonLoader {
             int id = 0;
 
             System.out.println("\tCreating ROOMS");
-            room = new Room(id++, "Common room connected with HOME", new RoomSet(1));
+            room = new Room(id++, "Common room connected with HOME", new RoomSet(1), "1.png");
             room.addItem(Necklace.createNecklace(Domain.LIFE, 5));
             dungeon.addRoom(room);
 
-            room = new Room(id++, "Common room in the middle", new RoomSet(0));
+            room = new Room(id++, "Common room in the middle", new RoomSet(0), "2.png");
             Creature creature = new Creature("Big Monster", 5, 1, Domain.ELECTRICITY);
             creature.addSpell(new ElectricAttack());
             room.setCreature(creature);
             dungeon.addRoom(room);
 
-            room = new Room(id++, "Common room and Exit", new RoomSet(0), true);
+            room = new Room(id++, "Common room and Exit", new RoomSet(0), true, "3.png");
             dungeon.addRoom(room);
 
             System.out.println("\tCreating DOORS");
