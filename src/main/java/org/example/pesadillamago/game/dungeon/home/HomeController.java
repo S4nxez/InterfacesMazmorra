@@ -7,13 +7,18 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lombok.Setter;
 import org.example.pesadillamago.dao.DaoPlayer;
 import org.example.pesadillamago.game.util.ValueOverMaxException;
+import org.example.pesadillamago.ui.HelloApplication;
 
 import java.io.IOException;
 
 public class HomeController {
     private final DaoPlayer daoPlayer;
+
+    @Setter
+    private Stage stage;
 
     public HomeController() {
         this.daoPlayer = new DaoPlayer();
@@ -55,8 +60,12 @@ public class HomeController {
         stage.close();
     }
     @FXML
-    public void handleGoToDungeon(ActionEvent actionEvent) {
+    public void handleGoToDungeon(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/org/example/pesadillamago/game.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
 
+        stage.setScene(scene);
+        stage.show();
     }
     @FXML
     public void handleSleep(ActionEvent actionEvent) {
