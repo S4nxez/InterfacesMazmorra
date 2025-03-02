@@ -1,5 +1,6 @@
 package org.example.pesadillamago.game.objectContainer;
 
+import lombok.Getter;
 import org.example.pesadillamago.game.Domain;
 import org.example.pesadillamago.game.object.Item;
 import org.example.pesadillamago.game.object.Necklace;
@@ -9,7 +10,8 @@ import org.example.pesadillamago.game.objectContainer.exceptions.ContainerFullEx
 import org.example.pesadillamago.game.objectContainer.exceptions.ContainerUnacceptedItemException;
 import org.example.pesadillamago.game.util.ValueUnderMinException;
 
-public class Wearables extends Container{
+@Getter
+public class Wearables extends Container {
 
     private int weapons, necklaces, rings;
     private final int weaponsMAX;
@@ -17,7 +19,7 @@ public class Wearables extends Container{
     private final int ringsMAX;
 
     public Wearables(int w, int n, int r) {
-        super(Domain.NONE, w+n+r);
+        super(Domain.NONE, w + n + r);
         weapons = necklaces = rings = 0;
         weaponsMAX = w;
         necklacesMAX = n;
@@ -88,7 +90,7 @@ public class Wearables extends Container{
         return null;
     }
 
-    public int getRingProtection(Domain domain){
+    public int getRingProtection(Domain domain) {
         int value = -1;
         for (Item s : items)
             if (s instanceof Ring) {
@@ -100,20 +102,21 @@ public class Wearables extends Container{
         return value;
     }
 
-    public int getNecklaceProtection(Domain domain, int value){
+    public int getNecklaceProtection(Domain domain, int value) {
         int newValue = 0;
         for (Item s : items)
             if (s instanceof Necklace) {
                 Necklace necklace = (Necklace) s;
                 if (necklace.getDomain() == domain) {
                     newValue = value - necklace.getValue();
-                    if (newValue > 0 || newValue == 0){
+                    if (newValue > 0 || newValue == 0) {
                         items.remove(necklace);
-                    }else {
+                    } else {
                         try {
-                            necklace.decreaseValue(newValue*-1);
+                            necklace.decreaseValue(newValue * -1);
                             newValue = 0;
-                        } catch (ValueUnderMinException ignored) {}
+                        } catch (ValueUnderMinException ignored) {
+                        }
                     }
                 }
             }

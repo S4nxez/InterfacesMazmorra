@@ -24,7 +24,7 @@
         <Button fx:id="hechizosBtn113" layoutX="472.0" layoutY="207.0" onAction="#handleDirection" prefHeight="54.0" prefWidth="130.0" text="Adelante" />
         <Button fx:id="hechizosBtn11" layoutX="478.0" layoutY="883.0" onAction="#handleDirection" prefHeight="54.0" prefWidth="120.0" text="Atras" />
 
-      <Button fx:id="hechizosBtn12" layoutX="845.0" layoutY="803.0" text="Cofre" />
-      <Button fx:id="hechizosBtn13" layoutX="74.0" layoutY="664.0" text="Pelear" />
-    </children>
+
+    <Button fx:id="hechizosBtn12" layoutX="845.0" layoutY="803.0" text="Cofre"/>
+    <Button fx:id="hechizosBtn13" layoutX="74.0" layoutY="664.0" text="Pelear"/>
 </AnchorPane>

@@ -17,7 +17,7 @@ public class Home extends Site implements Location {
     private Knowledge library;
 
     public Home(String desc, int c, int s, int m, Chest chest, Knowledge l) {
-        super(-1, desc, chest);
+        super(-1, desc, chest, "1.png");
         comfort = new Value(c);
         singa = new SingaStone(s, m);
         library = l;
