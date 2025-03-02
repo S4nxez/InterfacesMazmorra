@@ -1,6 +1,5 @@
 package org.example.pesadillamago.game.dungeon;
 
-import lombok.Data;
 import org.example.pesadillamago.game.character.Creature;
 import org.example.pesadillamago.game.object.SingaCrystal;
 import org.example.pesadillamago.game.objectContainer.CrystalFarm;
@@ -71,7 +70,7 @@ public class Room extends Site implements Location {
 
     public String toString() {
 
-        String exit = "ID(" + ID + ") Exit(" + this.exit + ") " + description;
+        String exit = "ID(" + id + ") Exit(" + this.exit + ") " + description;
         if (creature != null)
             exit = exit.concat("\n\tCreature: " + creature);
         exit = exit.concat("\n\tCrystalFarm[" + farm.toString() + "]");
