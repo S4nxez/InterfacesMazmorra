@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+
 <AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0"
             style="-fx-background-color: black;" stylesheets="@./styles.css"
             xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
@@ -25,7 +26,7 @@
         <Button fx:id="hechizosBtn113" layoutX="472.0" layoutY="207.0" onAction="#handleDirection" prefHeight="54.0" prefWidth="130.0" text="Adelante" />
         <Button fx:id="hechizosBtn11" layoutX="478.0" layoutY="883.0" onAction="#handleDirection" prefHeight="54.0" prefWidth="120.0" text="Atras" />
 
-      <Button fx:id="hechizosBtn12" layoutX="845.0" layoutY="803.0" text="Cofre" />
-      <Button fx:id="hechizosBtn13" layoutX="74.0" layoutY="664.0" text="Pelear" />
-    </children>
+
+    <Button fx:id="hechizosBtn12" layoutX="845.0" layoutY="803.0" text="Cofre"/>
+    <Button fx:id="hechizosBtn13" layoutX="74.0" layoutY="664.0" text="Pelear"/>
 </AnchorPane>

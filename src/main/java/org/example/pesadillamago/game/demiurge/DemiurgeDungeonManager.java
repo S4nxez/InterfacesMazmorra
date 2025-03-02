@@ -61,7 +61,7 @@ public class DemiurgeDungeonManager {
     public Iterator<Door> getDoorsIterator() { return site.iterator(); }
     public String showOtherSite(Door door) {
         Site other = door.showFrom(site);
-        return "(" + other.getID() + ") " + other.getDescription();
+        return "(" + other.getId() + ") " + other.getDescription();
     }
 
     public void openDoor(int index) throws WizardTiredException, GoHomekException, EndGameException {

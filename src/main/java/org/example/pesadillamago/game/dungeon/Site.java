@@ -11,30 +11,30 @@ import java.util.ArrayList;
 import java.util.Iterator;
 @Data
 public class Site implements Location {
-    @Getter
-    final int ID;
-    @Getter
-    final String description;
-    @Getter
-    final String imgRoute;
-    @Getter
+     int id;
+     String description;
+     String imgRoute;
     boolean visited = false;
-    @Getter
     boolean exit = false;
-    @Getter
     final Container container;
-    private final ArrayList<Door> doors;
+    private  ArrayList<Door> doors;
 
-    public Site(int ID, String description, Container container, String imgRoute) {
-        this.ID = ID;
+    public Site(int id, String description, Container container, String imgRoute) {
+        this.id = id;
         this.description = description;
         this.container = container;
         this.imgRoute = imgRoute;
         doors = new ArrayList<>();
     }
+    public Site(int id, String description, Container container) {
+        this.id = id;
+        this.description = description;
+        this.container = container;
+        doors = new ArrayList<>();
+    }
 
-    public Site(int ID, String description, Container container, boolean exit, String imgRoute) {
-        this(ID, description, container, imgRoute);
+    public Site(int id, String description, Container container, boolean exit, String imgRoute) {
+        this(id, description, container, imgRoute);
         this.exit = exit;
     }
 

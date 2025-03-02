@@ -9,6 +9,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lombok.Setter;
 
+import org.example.pesadillamago.common.Constantes;
+import org.example.pesadillamago.dao.FilesDao;
+import org.example.pesadillamago.game.character.exceptions.WizardTiredException;
+import org.example.pesadillamago.game.demiurge.Demiurge;
+import org.example.pesadillamago.game.demiurge.exceptions.EndGameException;
+import org.example.pesadillamago.game.demiurge.exceptions.GoHomekException;
+import org.example.pesadillamago.game.object.Item;
+
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,6 +35,14 @@ public class GameController {
 
     private List<Image> images;
     private int currentImageIndex = 0;
+    private Demiurge demiurge;
+    private boolean isInventoryVisible = false;
+    List<Item> items = new ArrayList<>();
+    private final FilesDao service;
+
+    public GameController() {
+        this.service = new FilesDao();
+    }
 
     @FXML
     public void initialize() {
@@ -34,6 +51,7 @@ public class GameController {
         rootPane.widthProperty().addListener((obs, oldVal, newVal) -> adjustImageView());
         rootPane.heightProperty().addListener((obs, oldVal, newVal) -> adjustImageView());
     }
+
     private void adjustImageView() {
         if (gameImageView.getImage() == null) return;
 
@@ -60,7 +78,6 @@ public class GameController {
         AnchorPane.setLeftAnchor(gameImageView, x);
         AnchorPane.setTopAnchor(gameImageView, y);
     }
-
 
     private void loadImages() {
         images = new ArrayList<>();
@@ -100,8 +117,44 @@ public class GameController {
     private void handleDirection(ActionEvent event) {
         Button button = (Button) event.getSource();
         String direction = button.getText();
-        showNextImage();
+        int selection = -1;
+
+        switch (direction) {
+            case "Up":
+                selection = 0;
+                break;
+            case "Right":
+                selection = 1;
+                break;
+            case "Down":
+                selection = 2;
+                break;
+            case "Left":
+                selection = 3;
+                break;
+        }
+
+        if (selection >= 0 && selection < demiurge.getDungeonManager().getNumberOfDoors()) {
+            try {
+                demiurge.getDungeonManager().openDoor(selection);
+                HelloApplication.cambiarPantalla(demiurge, Constantes.DUNGEON);
+            } catch (WizardTiredException | GoHomekException e) {
+                HelloApplication.cambiarPantalla(demiurge, Constantes.HOME);
+            } catch (EndGameException e) {
+                HelloApplication.cambiarPantalla(demiurge, Constantes.FINISH);
+            }
+        } else if (selection == demiurge.getDungeonManager().getNumberOfDoors()) {
+            try {
+                throw new EndGameException();
+            } catch (EndGameException e) {
+                HelloApplication.cambiarPantalla(demiurge, Constantes.FINISH);
+            }
+        } else {
+            System.out.println("There is not a room there");
+        }
     }
+
     private void updateHP(int current, int max) {
+        // Implement the method to update HP
     }
 }

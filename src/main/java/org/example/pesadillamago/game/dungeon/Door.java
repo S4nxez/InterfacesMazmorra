@@ -1,11 +1,11 @@
 package org.example.pesadillamago.game.dungeon;
 
-import lombok.Setter;
+import lombok.Data;
 
+@Data
 public class Door {
     private final Site a;
     private final Site b;
-    @Setter
     private boolean used = false;
 
     public Door(Site a, Site b) {
@@ -37,7 +37,7 @@ public class Door {
     }
 
     public String toString(){
-        return a.getID() + ":" + b.getID();
+        return a.getId() + ":" + b.getId();
     }
 
 }
