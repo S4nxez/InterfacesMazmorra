@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="554.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pesadillamago.ui.GameCont">
+   <children>
+      <ImageView fitHeight="523.0" fitWidth="561.0" layoutX="64.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/game/8.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="monsterImage" fitHeight="218.0" fitWidth="119.0" layoutX="279.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/monstruo.png" />
+         </image>
+      </ImageView>
+
+      <!-- Barra de vida del monstruo -->
+      <VBox alignment="CENTER" layoutX="238.0" layoutY="36.0" spacing="5.0">
+         <children>
+            <Label text="Monstruo">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ProgressBar fx:id="monsterHealthBar" prefWidth="200.0" progress="1.0" style="-fx-accent: red;" />
+            <Label fx:id="monsterHealthLabel" text="100/100" textFill="WHITE" />
+         </children>
+      </VBox>
+
+      <!-- Barra de vida del jugador -->
+      <VBox alignment="CENTER" layoutX="224.0" layoutY="342.0" spacing="5.0">
+         <children>
+            <Label text="Mago">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ProgressBar fx:id="playerHealthBar" prefWidth="200.0" progress="1.0" style="-fx-accent: green;" />
+            <Label fx:id="playerHealthLabel" text="100/100" textFill="WHITE" />
+            <Label text="Energía">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <ProgressBar fx:id="playerEnergyBar" prefWidth="200.0" progress="1.0" style="-fx-accent: blue;" />
+            <Label fx:id="playerEnergyLabel" text="100/100" textFill="WHITE" />
+         </children>
+      </VBox>
+
+      <!-- Botones de ataque -->
+      <HBox alignment="CENTER" layoutX="135.0" layoutY="484.0" spacing="20.0">
+         <children>
+            <Button fx:id="fireAttackBtn" mnemonicParsing="false" onAction="#onFireAttack" style="-fx-background-color: #ff5733;" text="Ataque de Fuego" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="electricAttackBtn" mnemonicParsing="false" onAction="#onElectricAttack" style="-fx-background-color: #33a1ff;" text="Ataque Eléctrico" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="airAttackBtn" mnemonicParsing="false" onAction="#onAirAttack" style="-fx-background-color: #33ff57;" text="Ataque de Aire" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+
+      <!-- Mensaje de resultado -->
+      <Label fx:id="resultLabel" alignment="CENTER" layoutX="57.0" layoutY="380.0" prefHeight="30.0" prefWidth="400.0" textAlignment="CENTER" textFill="WHITE" visible="false">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
