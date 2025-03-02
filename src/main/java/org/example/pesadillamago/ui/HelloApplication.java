@@ -25,6 +25,7 @@ public class HelloApplication extends Application {
         stage.setTitle("Main Home Interface");
         stage.setScene(scene);
         stage.show();
+
         homeController.setStage(stage);
 
     }

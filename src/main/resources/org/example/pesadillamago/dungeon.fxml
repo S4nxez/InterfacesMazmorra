@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.pesadillamago.ui.GameController"
-            fx:id="rootPane"
-            prefHeight="400.0" prefWidth="600.0">
-    <ImageView fx:id="gameImageView" layoutX="100.0" layoutY="100.0" fitWidth="400.0" fitHeight="200.0"/>
-    <Button fx:id="upButton" layoutX="275.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleDirection" text="Up" />
-    <Button fx:id="rightButton" layoutX="500.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleDirection" text="Right" />
-    <Button fx:id="downButton" layoutX="275.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleDirection" text="Down" />
-    <Button fx:id="leftButton" layoutX="50.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleDirection" text="Left" />
+<AnchorPane fx:id="screen" prefHeight="900.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.pesadillamago.ui.GameController">
+
+    <!-- Elemento raíz DEBE ser el AnchorPane con fx:id="screen" -->
+    <children>
+        <ImageView fx:id="creature" fitHeight="515.0" fitWidth="483.0"
+                   layoutX="156.0" layoutY="252.0"
+                   preserveRatio="true" visible="false"/>
+
+        <Label fx:id="infoLabel" layoutX="200.0" layoutY="300.0"
+               prefHeight="90.0" prefWidth="531.0"
+               style="-fx-background-color: rgba(0,0,0,0.7);"
+               visible="false"/>
+
+        <Label fx:id="roomName" prefHeight="60.0" prefWidth="459.0"
+               style="-fx-font-size: 30px; "
+               AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0"
+               AnchorPane.topAnchor="80.0"/>
+
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="transparent"
+                   height="369.0" width="261.0" layoutX="1.0" layoutY="530.0"
+    </children>
 </AnchorPane>

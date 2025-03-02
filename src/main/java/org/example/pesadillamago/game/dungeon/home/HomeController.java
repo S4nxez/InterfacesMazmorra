@@ -56,7 +56,7 @@ public class HomeController implements DemiurgeConsumer {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/org/example/pesadillamago/libraryHomeInterface.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             GameController gc = fxmlLoader.getController();
-            gc.setStage(stage);
+
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -76,7 +76,7 @@ public class HomeController implements DemiurgeConsumer {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/org/example/pesadillamago/game.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         GameController gc = fxmlLoader.getController();
-        gc.setStage(stage);
+
         stage.setScene(scene);
         stage.show();
     }
