@@ -7,12 +7,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.pesadillamago.common.Constantes;
 import org.example.pesadillamago.dao.DaoPlayer;
+import org.example.pesadillamago.game.demiurge.Demiurge;
 import org.example.pesadillamago.game.util.ValueOverMaxException;
+import org.example.pesadillamago.ui.DemiurgeConsumer;
+import org.example.pesadillamago.ui.GameController;
 
 import java.io.IOException;
 
-public class HomeController {
+public class HomeController implements DemiurgeConsumer {
     private final DaoPlayer daoPlayer;
 
     public HomeController() {
@@ -56,7 +60,17 @@ public class HomeController {
     }
     @FXML
     public void handleGoToDungeon(ActionEvent actionEvent) {
-
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(Constantes.DUNGEON));
+            loader.setControllerFactory(param -> new GameController());
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     public void handleSleep(ActionEvent actionEvent) {
@@ -69,5 +83,10 @@ public class HomeController {
         } catch (ValueOverMaxException e) {
 
         }
+    }
+
+    @Override
+    public void loadScreenData(Demiurge demiurge) {
+
     }
 }

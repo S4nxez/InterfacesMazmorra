@@ -25,7 +25,7 @@ public class Dungeon {
 
     public Room getSite(int ID){
         for(Room room: rooms){
-            if(room.getID() == ID)
+            if(room.getId() == ID)
                 return  room;
         }
         return null;

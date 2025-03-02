@@ -1,5 +1,9 @@
 package org.example.pesadillamago.game.objectContainer;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.example.pesadillamago.game.Domain;
 import org.example.pesadillamago.game.object.Item;
 import org.example.pesadillamago.game.objectContainer.exceptions.ContainerFullException;
@@ -7,13 +11,19 @@ import org.example.pesadillamago.game.objectContainer.exceptions.ContainerUnacce
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Basic aggregation of elements that is limited in capacity
  */
+
+@EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class Container extends Item {
 
-    final ArrayList<Item> items;
+     List<Item> items;
 
     /**
      *
