@@ -6,6 +6,8 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import lombok.Setter;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -14,6 +16,8 @@ import java.util.List;
 
 public class GameController {
 
+    @Setter
+    private Stage stage;
     @FXML
     private AnchorPane rootPane;
 
@@ -91,7 +95,6 @@ public class GameController {
             adjustImageView();
         }
     }
-
 
     @FXML
     private void handleDirection(ActionEvent event) {

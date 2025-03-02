@@ -2,14 +2,22 @@ package org.example.pesadillamago.game.dungeon.home;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import lombok.Setter;
 import org.example.pesadillamago.dao.DaoPlayer;
 import org.example.pesadillamago.game.objectContainer.exceptions.ContainerFullException;
 import org.example.pesadillamago.game.objectContainer.exceptions.ContainerUnacceptedItemException;
 import org.example.pesadillamago.game.spell.SpellUnknowableException;
 import org.example.pesadillamago.game.util.ValueOverMaxException;
 
+import java.io.IOException;
+
 public class HomeLibraryController {
 
+    @Setter
+    private Stage stage;
     private final DaoPlayer daoPlayer;
 
     public HomeLibraryController(DaoPlayer daoPlayer) {
@@ -47,7 +55,16 @@ public class HomeLibraryController {
     }
     @FXML
     public void handleExit(ActionEvent actionEvent) {
-
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HomeController.class.getResource("/org/example/pesadillamago/mainHomeInterface.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            HomeController homeController = fxmlLoader.getController();
+            homeController.setStage(stage);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     public void handleDeleteFromStorage(ActionEvent actionEvent) {

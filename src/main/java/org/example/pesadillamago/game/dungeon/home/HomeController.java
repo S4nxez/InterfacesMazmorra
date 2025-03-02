@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import lombok.Setter;
 import org.example.pesadillamago.dao.DaoPlayer;
 import org.example.pesadillamago.game.util.ValueOverMaxException;
+import org.example.pesadillamago.ui.GameController;
 import org.example.pesadillamago.ui.HelloApplication;
 
 import java.io.IOException;
@@ -27,11 +28,13 @@ public class HomeController {
     @FXML
     public void handleManageSinga(ActionEvent actionEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/pesadillamago/singaHomeInterface.fxml"));
-            loader.setControllerFactory(param -> new HomeSingaController(daoPlayer));
-            Parent root = loader.load();
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/org/example/pesadillamago/singaHomeInterface.fxml"));
+            fxmlLoader.setControllerFactory(param -> new HomeSingaController(daoPlayer));
+            Scene scene = new Scene(fxmlLoader.load());
+
+            HomeSingaController homeSingaController = fxmlLoader.getController();
+            homeSingaController.setStage(stage);
+
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -42,11 +45,10 @@ public class HomeController {
     @FXML
     public void handleGoToLibrary(ActionEvent actionEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/pesadillamago/libraryHomeInterface.fxml"));
-            loader.setControllerFactory(param -> new HomeLibraryController(daoPlayer));
-            Parent root = loader.load();
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/org/example/pesadillamago/libraryHomeInterface.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            GameController gc = fxmlLoader.getController();
+            gc.setStage(stage);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -59,18 +61,22 @@ public class HomeController {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
     }
+
     @FXML
     public void handleGoToDungeon(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/org/example/pesadillamago/game.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-
+        GameController gc = fxmlLoader.getController();
+        gc.setStage(stage);
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     public void handleSleep(ActionEvent actionEvent) {
         daoPlayer.handleSleep();
     }
+
     @FXML
     public void handleRecoverLife(ActionEvent actionEvent) {
         try {

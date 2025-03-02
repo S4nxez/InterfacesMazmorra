@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lombok.Setter;
 import org.example.pesadillamago.dao.DaoPlayer;
 import org.example.pesadillamago.game.character.exceptions.WizardNotEnoughEnergyException;
 import org.example.pesadillamago.game.character.exceptions.WizardTiredException;
@@ -19,27 +20,24 @@ import java.io.IOException;
 public class HomeSingaController {
     private final DaoPlayer daoPlayer;
 
+    @Setter
+    private Stage stage;
+
     public HomeSingaController(DaoPlayer daoPlayer) {
         this.daoPlayer = daoPlayer;
     }
 
     @FXML
-    public void handleMergeSingaCrystal(ActionEvent actionEvent) {
+    public void handleMergeSingaCrystal() {
         try {
             daoPlayer.handleMergeSingaCrystal(0);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } catch (WizardTiredException e) {
-            throw new RuntimeException(e);
-        } catch (ContainerErrorException e) {
-            throw new RuntimeException(e);
-        } catch (ContainerEmptyException e) {
+        } catch (WizardTiredException | ContainerErrorException | ContainerEmptyException e) {
             throw new RuntimeException(e);
         }
     }
 
     @FXML
-    public void handleUpgradeMaxLife(ActionEvent actionEvent) {
+    public void handleUpgradeMaxLife() {
         try {
             daoPlayer.upgradeLifeMax();
         } catch (Exception | HomeNotEnoughSingaException | WizardNotEnoughEnergyException | WizardTiredException e) {
@@ -48,7 +46,7 @@ public class HomeSingaController {
     }
 
     @FXML
-    public void handleUpgradeMaxEnergy(ActionEvent actionEvent) {
+    public void handleUpgradeMaxEnergy() {
         try {
             daoPlayer.upgradeEnergyMax();
         } catch (Exception | HomeNotEnoughSingaException | WizardNotEnoughEnergyException | WizardTiredException e) {
@@ -57,7 +55,7 @@ public class HomeSingaController {
     }
 
     @FXML
-    public void handleUpgradeHomeComfort(ActionEvent actionEvent) {
+    public void handleUpgradeHomeComfort() {
         try {
             daoPlayer.upgradeComfort();
         } catch (Exception | HomeNotEnoughSingaException | WizardNotEnoughEnergyException | WizardTiredException e) {
@@ -66,7 +64,7 @@ public class HomeSingaController {
     }
 
     @FXML
-    public void handleUpgradeStoneCapacity(ActionEvent actionEvent) {
+    public void handleUpgradeStoneCapacity() {
         try {
             daoPlayer.upgradeSingaMax();
         } catch (Exception | HomeNotEnoughSingaException | WizardNotEnoughEnergyException | WizardTiredException e) {
@@ -75,23 +73,25 @@ public class HomeSingaController {
     }
 
     @FXML
-    public void handleExitMenu(ActionEvent actionEvent) {
+    public void handleExitMenu() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/pesadillamago/mainHomeInterface.fxml"));
-            Parent root = loader.load();
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(loader.load());
+
+            HomeController homeController = loader.getController();
+            homeController.setStage(stage); 
+
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void handleMergeCrystals(ActionEvent actionEvent) {
-
-
     }
+
     @FXML
     public void handleUpgradeCharacteristics(ActionEvent actionEvent) {
     }
