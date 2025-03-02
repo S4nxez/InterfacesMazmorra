@@ -11,7 +11,7 @@
             fx:controller="org.example.pesadillamago.ui.GameController">
     <children>
         <ImageView fx:id="gameImageView" pickOnBounds="true" preserveRatio="true">
-            <Image url="@images/game/1.png" />
+            <Image url="@images/salaCofre1.png" />
         </ImageView>
         <Label layoutX="322.0" layoutY="305.0" text="hp.100/100">
          <font>
@@ -27,4 +27,5 @@
 
     <Button fx:id="hechizosBtn12" layoutX="845.0" layoutY="803.0" text="Cofre"/>
     <Button fx:id="hechizosBtn13" layoutX="74.0" layoutY="664.0" text="Pelear"/>
+    </children>
 </AnchorPane>
