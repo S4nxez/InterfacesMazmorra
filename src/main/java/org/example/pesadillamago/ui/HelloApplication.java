@@ -5,8 +5,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.pesadillamago.game.dungeon.home.HomeController;
 import org.example.pesadillamago.common.Constantes;
 import org.example.pesadillamago.game.demiurge.Demiurge;
+
 
 import java.io.IOException;
 
@@ -15,22 +17,16 @@ public class HelloApplication extends Application {
 
 
     @Override
-    public void start(Stage rstage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(Constantes.HOME));
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/pesadillamago/mainHomeInterface.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 800);
-        rstage.setResizable(false);
-        rstage.setTitle("Main Home Interface");
-        rstage.setScene(scene);
-        rstage.show();
+        HomeController homeController = fxmlLoader.getController();
+        stage.setResizable(false);
+        stage.setTitle("Main Home Interface");
+        stage.setScene(scene);
+        stage.show();
+        homeController.setStage(stage);
 
-        stage = rstage;
-        rstage.setTitle("Dungeon");
-        cambiarPantalla(null, Constantes.HOME);
-        rstage.setMinHeight(500);
-        rstage.setMinWidth(500);
-        rstage.setMaxHeight(900);
-        rstage.setMaxWidth(900);
-        rstage.show();
     }
 
     public static void main(String[] args) {

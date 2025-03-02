@@ -6,6 +6,9 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import lombok.Setter;
+
 import org.example.pesadillamago.common.Constantes;
 import org.example.pesadillamago.dao.FilesDao;
 import org.example.pesadillamago.game.character.exceptions.WizardTiredException;
@@ -14,6 +17,7 @@ import org.example.pesadillamago.game.demiurge.exceptions.EndGameException;
 import org.example.pesadillamago.game.demiurge.exceptions.GoHomekException;
 import org.example.pesadillamago.game.object.Item;
 
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,6 +25,8 @@ import java.util.List;
 
 public class GameController {
 
+    @Setter
+    private Stage stage;
     @FXML
     private AnchorPane rootPane;
 
