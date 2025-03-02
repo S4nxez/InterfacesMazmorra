@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<GameState>
+    <playerName>player</playerName>
+    <level>1</level>
+    <score>0</score>
+    <dungeons>
+        <dungeon>
+            <room>ID(1) Exit(false) Entrada
+	CrystalFarm[CrystalFarm (0:0) -&gt; ]
+	ItemsRoomSet (3:0) -&gt; </room>
+            <room>ID(2) Exit(false) Sala de tesoros
+	CrystalFarm[CrystalFarm (0:0) -&gt; ]
+	ItemsRoomSet (3:0) -&gt; </room>
+            <room>ID(3) Exit(false) Habitación del jefe
+	CrystalFarm[CrystalFarm (0:0) -&gt; ]
+	ItemsRoomSet (3:0) -&gt; </room>
+        </dungeon>
+        <dungeon>
+            <room>ID(4) Exit(false) Entrada
+	CrystalFarm[CrystalFarm (0:0) -&gt; ]
+	ItemsRoomSet (3:0) -&gt; </room>
+            <room>ID(5) Exit(false) Pasillo oscuro
+	CrystalFarm[CrystalFarm (0:0) -&gt; ]
+	ItemsRoomSet (3:0) -&gt; </room>
+            <room>ID(6) Exit(false) Cámara secreta
+	CrystalFarm[CrystalFarm (0:0) -&gt; ]
+	ItemsRoomSet (3:0) -&gt; </room>
+        </dungeon>
+    </dungeons>
+</GameState>

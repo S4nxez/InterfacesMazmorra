@@ -1,6 +1,7 @@
 package org.example.pesadillamago.game.dungeon;
 
 import lombok.Data;
+import lombok.Getter;
 import org.example.pesadillamago.game.object.Item;
 import org.example.pesadillamago.game.objectContainer.Container;
 import org.example.pesadillamago.game.objectContainer.exceptions.ContainerFullException;
@@ -10,42 +11,36 @@ import java.util.ArrayList;
 import java.util.Iterator;
 @Data
 public class Site implements Location {
-    final int ID;
-    final String description;
+     int id;
+     String description;
+     String imgRoute;
     boolean visited = false;
     boolean exit = false;
     final Container container;
-    private final ArrayList<Door> doors;
+    private  ArrayList<Door> doors;
 
-    public Site(int ID, String description, Container container) {
-        this.ID = ID;
+    public Site(int id, String description, Container container, String imgRoute) {
+        this.id = id;
+        this.description = description;
+        this.container = container;
+        this.imgRoute = imgRoute;
+        doors = new ArrayList<>();
+    }
+    public Site(int id, String description, Container container) {
+        this.id = id;
         this.description = description;
         this.container = container;
         doors = new ArrayList<>();
     }
 
-    public Site(int ID, String description, Container container, boolean exit) {
-        this(ID, description, container);
+    public Site(int id, String description, Container container, boolean exit, String imgRoute) {
+        this(id, description, container, imgRoute);
         this.exit = exit;
     }
 
-    public int getID() {
-        return ID;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public boolean isVisited() { return visited; }
     public void visit() { visited = true; }
-    public boolean isExit() {
-        return exit;
-    }
 
-
-    //Container
-    public Container getContainer() { return container;}
     public void addItem(Item s) throws ContainerUnacceptedItemException, ContainerFullException { container.add(s); }
-
 
     //Doors
     public int getNumberOfDoors() {

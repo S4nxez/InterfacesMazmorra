@@ -1,10 +1,17 @@
 package org.example.pesadillamago.game.object;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.example.pesadillamago.game.Domain;
 import org.example.pesadillamago.game.util.Value;
 import org.example.pesadillamago.game.util.ValueOverMaxException;
 import org.example.pesadillamago.game.util.ValueUnderMinException;
 
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class Item {
 
     Domain domain;
