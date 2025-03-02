@@ -1,5 +1,6 @@
 package org.example.pesadillamago.game.character;
 
+import lombok.Data;
 import org.example.pesadillamago.game.Domain;
 import org.example.pesadillamago.game.actions.Attack;
 import org.example.pesadillamago.game.actions.PhysicalAttack;
@@ -19,6 +20,7 @@ import java.util.Iterator;
  * Wizard's attributes and related data.
  *
  */
+@Data
 public abstract class Character {
 
     String name;

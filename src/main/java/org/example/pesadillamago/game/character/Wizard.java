@@ -1,9 +1,13 @@
 package org.example.pesadillamago.game.character;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.example.pesadillamago.game.Domain;
 import org.example.pesadillamago.game.actions.Attack;
 import org.example.pesadillamago.game.character.exceptions.CharacterKilledException;
 import org.example.pesadillamago.game.character.exceptions.WizardTiredException;
+import org.example.pesadillamago.game.dungeon.Site;
 import org.example.pesadillamago.game.object.Item;
 import org.example.pesadillamago.game.object.Weapon;
 import org.example.pesadillamago.game.objectContainer.Container;
@@ -23,8 +27,10 @@ import org.example.pesadillamago.game.util.ValueUnderMinException;
  * Wizard's attributes and related data.
  *
  */
+@Getter
+@Setter
 public class Wizard extends Character {
-
+    private Site currentLocation;
     private final Value energy;
     private final Wearables wearables;
     private final CrystalCarrier crystalCarrier;
@@ -34,7 +40,7 @@ public class Wizard extends Character {
         super(n, Domain.NONE, l, lm, 1);
 
         energy = new Value(em, 0, e);
-
+        this.currentLocation = null;
         wearables = w;
         crystalCarrier = c;
         jewelryBag = j;

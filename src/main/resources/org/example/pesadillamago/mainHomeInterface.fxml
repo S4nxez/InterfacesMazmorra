@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane
+        prefHeight="400.0" prefWidth="600.0"
+        stylesheets="@./styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pesadillamago.game.dungeon.home.HomeController">
+    <ImageView fx:id="imageView" preserveRatio="true">
+        <Image url="@images/casaMagoMain.png" />
+    </ImageView>
+
+        <Button layoutX="330.0" layoutY="521.0" onAction="#handleGoToDungeon" text="Go to Dungeon" />
+        <Button layoutX="14.0" layoutY="689.0" onAction="#handleSleep" text="Sleep (recover energy)" />
+        <Button layoutY="358.0" onAction="#handleRecoverLife" text="Recover life points" />
+        <Button layoutX="14.0" layoutY="118.0" onAction="#handleExitGame" text="Exit Game" />
+        <Button layoutX="630.0" layoutY="689.0" onAction="#handleManageSinga" text="Manage Singa" />
+        <Button layoutX="638.0" layoutY="412.0" onAction="#handleGoToLibrary" text="Go to Library" />
+</AnchorPane>
