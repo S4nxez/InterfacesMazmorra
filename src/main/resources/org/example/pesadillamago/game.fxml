@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="screen" prefHeight="900.0" prefWidth="900.0"
             style="-fx-background-color: black;"
@@ -12,13 +11,12 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="org.example.pesadillamago.ui.GameController">
 
+<ImageView fx:id="backgroundImage" fitHeight="900.0" fitWidth="900.0"
+           layoutX="0.0" layoutY="0.0"
+           preserveRatio="true" />
     <children>
         <!-- Imagen de fondo -->
-        <ImageView fitHeight="900.0" fitWidth="900.0" preserveRatio="true">
-            <image>
 
-            </image>
-        </ImageView>
 
         <!-- Criatura -->
         <ImageView fx:id="creature" fitHeight="515.0" fitWidth="483.0"

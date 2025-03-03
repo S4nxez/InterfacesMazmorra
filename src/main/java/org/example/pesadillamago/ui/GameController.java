@@ -11,49 +11,60 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import org.example.pesadillamago.common.Constantes;
+import org.example.pesadillamago.game.DungeonLoader;
 import org.example.pesadillamago.game.character.exceptions.WizardTiredException;
 import org.example.pesadillamago.game.demiurge.Demiurge;
+import org.example.pesadillamago.game.demiurge.DungeonConfiguration;
 import org.example.pesadillamago.game.demiurge.exceptions.EndGameException;
 import org.example.pesadillamago.game.demiurge.exceptions.GoHomekException;
+import org.example.pesadillamago.loaderManual.DungeonLoaderManual;
 
 public class GameController implements DemiurgeConsumer {
 
-    // Mantén estas anotaciones igual
+    @FXML private ImageView backgroundImage;
     @FXML private AnchorPane screen;
     @FXML private ImageView creature;
     @FXML private Label infoLabel;
     @FXML private Label roomName;
 
-    // Añade estos nuevos elementos del FXML
     @FXML private Button hechizosBtn;
     @FXML private Button inventarioBtn;
     @FXML private Button cofreBtn;
     @FXML private Button pelearBtn;
 
-    @FXML
+    private Demiurge demiurge;
     public void initialize() {
-        // Verifica que todos los componentes críticos estén presentes
+        this.demiurge = new Demiurge();
+        if (backgroundImage == null) {
+            backgroundImage = new ImageView(new Image(getClass().getResourceAsStream("/org/example/pesadillamago/images/salaCofre1.png")));
+        }
+
+        DungeonLoader loader = new DungeonLoader() {
+            @Override
+            public void load(Demiurge demiurge, DungeonConfiguration dungeonConfiguration) {
+                DungeonLoaderManual dungeonLoaderManual = new DungeonLoaderManual();
+                dungeonLoaderManual.load(demiurge, dungeonConfiguration);
+            }
+        };
+        demiurge.loadEnvironment(loader);
+
+        configurarPantalla();
         if (screen == null || creature == null || infoLabel == null || roomName == null) {
             throw new IllegalStateException("¡FXML no cargado correctamente! Verifica los fx:id");
         }
 
-        configurarPantalla();
+
         configurarEventosTeclado();
         configurarBotones();
     }
 
     private void configurarBotones() {
-        cofreBtn.setOnAction(e -> HelloApplication.cambiarPantalla(demiurge, "Constantes.CHEST"));
-        pelearBtn.setOnAction(e -> HelloApplication.cambiarPantalla(demiurge, "Constantes.BATTLE"));
+        cofreBtn.setOnAction(e -> HelloApplication.cambiarPantalla(demiurge, Constantes.DUNGEON));
+        pelearBtn.setOnAction(e -> HelloApplication.cambiarPantalla(demiurge, Constantes.DUNGEON));
     }
-    private Demiurge demiurge;
-
-
-
 
     private void configurarPantalla() {
         try {
-            cargarImagenFondo();
             cargarImagenCriatura();
         } catch (NullPointerException e) {
             System.err.println("Error cargando recursos: " + e.getMessage());
@@ -68,7 +79,7 @@ public class GameController implements DemiurgeConsumer {
     }
 
     private void cargarImagenCriatura() {
-        Image creatureImage = new Image(getClass().getResourceAsStream(Constantes.DUNGEON_IMAGE));
+        Image creatureImage = new Image(getClass().getResourceAsStream("/org/example/pesadillamago/images/monstruo.png"));
         creature.setImage(creatureImage);
         creature.setVisible(false);
     }
@@ -105,14 +116,18 @@ public class GameController implements DemiurgeConsumer {
     private void procesarMovimiento(int direccion) {
         try {
             if (esMovimientoValido(direccion)) {
+
+                if (backgroundImage != null) {
+                    backgroundImage.setImage(new Image(getClass().getResourceAsStream("/org/example/pesadillamago/images/salaCofre1.png")));
+                }
                 ejecutarMovimiento(direccion);
             } else {
                 mostrarNotificacion("¡Dirección no válida!");
             }
         } catch (WizardTiredException | GoHomekException e) {
-            HelloApplication.cambiarPantalla(demiurge, Constantes.HOME);
+            HelloApplication.cambiarPantalla(demiurge, Constantes.DUNGEON);
         } catch (EndGameException e) {
-            HelloApplication.cambiarPantalla(demiurge, Constantes.FINISH);
+            HelloApplication.cambiarPantalla(demiurge,Constantes.DUNGEON);
         }
     }
 
@@ -141,5 +156,4 @@ public class GameController implements DemiurgeConsumer {
         fade.setOnFinished(e -> infoLabel.setVisible(false));
         fade.play();
     }
-
 }
