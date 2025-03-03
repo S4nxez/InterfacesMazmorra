@@ -1,31 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0"
-            style="-fx-background-color: black;" stylesheets="@./styles.css"
-            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+<AnchorPane fx:id="screen" prefHeight="900.0" prefWidth="900.0"
+            style="-fx-background-color: black;"
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="org.example.pesadillamago.ui.GameController">
+
+<ImageView fx:id="backgroundImage" fitHeight="900.0" fitWidth="900.0"
+           layoutX="0.0" layoutY="0.0"
+           preserveRatio="true" />
     <children>
-        <ImageView fx:id="gameImageView" pickOnBounds="true" preserveRatio="true">
-            <Image url="@images/salaCofre1.png" />
-        </ImageView>
-        <Label layoutX="322.0" layoutY="305.0" text="hp.100/100">
-         <font>
-            <Font size="13.0" />
-         </font></Label>
+        <!-- Imagen de fondo -->
+
+
+        <!-- Criatura -->
+        <ImageView fx:id="creature" fitHeight="515.0" fitWidth="483.0"
+                   layoutX="156.0" layoutY="252.0"
+                   preserveRatio="true" visible="false"/>
+
+        <!-- Elementos de UI -->
+        <Label fx:id="roomName" layoutX="50.0" layoutY="80.0"
+               prefHeight="60.0" prefWidth="800.0"
+               style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+        <Label fx:id="infoLabel" layoutX="200.0" layoutY="300.0"
+               prefHeight="90.0" prefWidth="500.0"
+               style="-fx-background-color: rgba(0,0,0,0.7); -fx-text-fill: white; -fx-font-size: 14px;"
+               visible="false"/>
+
+        <!-- Botones -->
         <Button fx:id="hechizosBtn" layoutX="840.0" layoutY="664.0" text="Hechizos" />
-      <Button fx:id="hechizosBtn1" layoutX="42.0" layoutY="803.0" text="Inventario" />
-        <Button fx:id="hechizosBtn111" layoutX="835.0" layoutY="287.0" onAction="#handleDirection" prefHeight="54.0" prefWidth="140.0" text="Derecha" />
-        <Button fx:id="hechizosBtn1111" layoutX="55.0" layoutY="287.0" onAction="#handleDirection" prefHeight="54.0" prefWidth="158.0" text="Izquierda" />
-        <Button fx:id="hechizosBtn113" layoutX="472.0" layoutY="207.0" onAction="#handleDirection" prefHeight="54.0" prefWidth="130.0" text="Adelante" />
-        <Button fx:id="hechizosBtn11" layoutX="478.0" layoutY="883.0" onAction="#handleDirection" prefHeight="54.0" prefWidth="120.0" text="Atras" />
-
-
-    <Button fx:id="hechizosBtn12" layoutX="845.0" layoutY="803.0" text="Cofre"/>
-    <Button fx:id="hechizosBtn13" layoutX="74.0" layoutY="664.0" text="Pelear"/>
+        <Button fx:id="inventarioBtn" layoutX="42.0" layoutY="803.0" text="Inventario" />
+        <Button fx:id="cofreBtn" layoutX="845.0" layoutY="803.0" text="Cofre"/>
+        <Button fx:id="pelearBtn" layoutX="74.0" layoutY="664.0" text="Pelear"/>
     </children>
 </AnchorPane>

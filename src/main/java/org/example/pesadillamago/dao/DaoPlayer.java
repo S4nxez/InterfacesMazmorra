@@ -31,6 +31,9 @@ public class DaoPlayer {
     public DaoPlayer() {
         this.gameState = new GameState();
         this.wizard = gameState.getWizard();
+        this.home = new Home(null, 0, 0,0,null, null);
+        this.dc = new DungeonConfiguration();
+
     }
 
     public void handleMergeSingaCrystal(int position) throws WizardTiredException, ContainerEmptyException, ContainerErrorException {

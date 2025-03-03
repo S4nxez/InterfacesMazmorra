@@ -15,7 +15,6 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     private static Stage stage;
 
-
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/pesadillamago/mainHomeInterface.fxml"));
@@ -25,6 +24,7 @@ public class HelloApplication extends Application {
         stage.setTitle("Main Home Interface");
         stage.setScene(scene);
         stage.show();
+
         homeController.setStage(stage);
 
     }
